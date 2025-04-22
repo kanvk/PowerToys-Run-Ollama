@@ -1,4 +1,4 @@
-# Local LLM
+# PowerToys-Run-Ollama
 
 PowerToys Run plugin which will enable to use LLMs on Ollama endpoints locally.
 
