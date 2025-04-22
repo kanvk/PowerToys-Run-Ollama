@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Platforms>x64;arm64</Platforms>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Platforms>x64</Platforms>
     <PlatformTarget>$(Platform)</PlatformTarget>
     <UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
-	<RootNamespace>Community.PowerToys.Run.Plugin.LocalLLm</RootNamespace>
-	<AssemblyName>Community.PowerToys.Run.Plugin.LocalLLM</AssemblyName>
-	<Version>1.0.2</Version>
+	<RootNamespace>Community.PowerToys.Run.Plugin.Ollama</RootNamespace>
+	<AssemblyName>Community.PowerToys.Run.Plugin.Ollama</AssemblyName>
+	<Version>1.1.0</Version>
 	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 	<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>
@@ -28,6 +28,12 @@
     <None Include="Images\*.png">
       <CopyToOutputDirectory> PreserveNewest </CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="libs\**" />
+    <EmbeddedResource Remove="libs\**" />
+    <None Remove="libs\**" />
+    <Page Remove="libs\**" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.11.65" />

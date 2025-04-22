@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Community.PowerToys.Run.Plugin.LocalLLM", "Community.PowerToys.Run.Plugin.LocalLLM\Community.PowerToys.Run.Plugin.LocalLLM.csproj", "{4708C1B9-6AB4-4BA7-834D-68ABE3C439EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Community.PowerToys.Run.Plugin.Ollama", "Community.PowerToys.Run.Plugin.LocalLLM\Community.PowerToys.Run.Plugin.Ollama.csproj", "{4708C1B9-6AB4-4BA7-834D-68ABE3C439EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

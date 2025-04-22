@@ -10,16 +10,14 @@ using Microsoft.PowerToys.Settings.UI.Library;
 using Clipboard = System.Windows.Clipboard;
 using System.Linq;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using HtmlAgilityPack;
 
-namespace Community.PowerToys.Run.Plugin.LocalLLM
+namespace Community.PowerToys.Run.Plugin.Ollama
 {
     public class Main : IPlugin, IDelayedExecutionPlugin, ISettingProvider, IContextMenu
     { 
         public static string PluginID => "550A34D0CFA845449989D581149B3D9C";
-        public string Name => "LocalLLM";
-        public string Description => "Uses Local LLM to output answer";
+        public string Name => "Ollama";
+        public string Description => "Uses ollama to respond to queries";
         private static readonly HttpClient client = new HttpClient();
         private string IconPath { get; set; }
         private PluginInitContext Context { get; set; }
@@ -40,9 +38,9 @@ namespace Community.PowerToys.Run.Plugin.LocalLLM
             {
                 Key = "Model",
                 DisplayLabel = "Model",
-                DisplayDescription = "Enter the Model to be used in Ollama. Ex. llama3.1(default). Make sure to pull model in ollama before using here.",
+                DisplayDescription = "Enter the Model to be used in Ollama. Ex. mistral-small3.1(default). Make sure to pull model in ollama before using here.",
                 PluginOptionType = PluginAdditionalOption.AdditionalOptionType.Textbox,
-                TextValue = "llama3.1",
+                TextValue = "mistral-small3.1",
             }
         };
         public void UpdateSettings(PowerLauncherPluginSettings settings)
@@ -50,7 +48,7 @@ namespace Community.PowerToys.Run.Plugin.LocalLLM
             if (settings != null && settings.AdditionalOptions != null)
             {
                 Endpoint = settings.AdditionalOptions.FirstOrDefault(x => x.Key == "LLMEndpoint")?.TextValue ?? "http://localhost:11434/api/generate";
-                Model = settings.AdditionalOptions.FirstOrDefault(x => x.Key == "Model")?.TextValue ?? "llama3.1";
+                Model = settings.AdditionalOptions.FirstOrDefault(x => x.Key == "Model")?.TextValue ?? "mistral-small3.1";
             }
         }
 
@@ -205,7 +203,7 @@ namespace Community.PowerToys.Run.Plugin.LocalLLM
                 List<string> modelNames = new List<string>();
                 foreach (var model in models)
                 {
-                    var modelName = model.GetProperty("name").GetString().Split(':')[0];
+                    var modelName = model.GetProperty("name").GetString();
                     modelNames.Add(modelName);
                 }
                 return modelNames;
