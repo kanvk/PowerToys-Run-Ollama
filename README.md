@@ -1,5 +1,7 @@
 # PowerToys-Run-Ollama
 
+
+Forked from [Darkdriller/PowerToys-Run-LocalLLm](https://github.com/Darkdriller/PowerToys-Run-LocalLLm). Adds support for using tags with ollama.
 PowerToys Run plugin which will enable to use LLMs on Ollama endpoints locally.
 
 
